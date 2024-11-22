@@ -12,7 +12,7 @@ def get_pooled_embedding(model, phrases):
     """Generate pooled embedding from a list of phrases."""
     embeddings = []
     for phrase in phrases:
-        words = phrase.split()
+        words = [word.lower() for word in phrase.split()]  # Lowercase each word
         phrase_embedding = []
         for word in words:
             if word in model.wv:
